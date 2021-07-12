@@ -15,22 +15,29 @@ One question I often get asked is what laptop to get for bioinformatics? You can
 any that runs Linux or a Unix flavour operating system. If you have the money, go for MacBook Pro because
 it has nice display.
 
-I have recently purchased a new MacBook Pro (13-inch, 2020, Four Thunderbolt 3 ports,
-2 GHz Quad-Core Intel Core i5, 32 GB 3733 MHz LPDDR4X, Intel Iris Plus Graphics 1536 MB).
-I am running MacOS Big Sur 11.4. In this article, I will show how I set it up for bioinformatics use starting from scratch
+I have recently purchased a new MacBook Pro with below specs:
+* 13-inch, 2020,
+* Four Thunderbolt 3 ports,
+* 2 GHz Quad-Core Intel Core i5,
+* 32 GB 3733 MHz LPDDR4X,
+* Intel Iris Plus Graphics 1536 MB
+
+I am running MacOS Big Sur 11.4.
+
+In this article, I will show how I set it up for bioinformatics use starting from scratch
 without using time machine to migrate data from the old laptop to this new one. This should
 be useful to someone who is starting new in bioinformatics. Do note that my work area is
-in the sequencing space so it will be different to someone working in say the proteomics space.
+in the sequencing space so it will be different to someone working in say the proteomics area.
 
-After you open the Mac and follow the instructions to get touch ID, Apple ID etc set up, you'll
+After you open your brand new Mac and follow the instructions to get touch ID, Apple ID etc set up, you'll
 be ready for something deeper that I'll describe below. When setting up, basic things you'll
-need is email and if you collaborate with people who use Microsoft, then you will need
+need are email and if you collaborate with people who use Microsoft, then you will need
 at least Microsoft Word. For email, under `System Preferences > Internet Accounts`, you'll
-find that you can set up multiple emails. Anyway, these basic things should be familiar to many
+find that you can set up multiple email addresses. Anyway, these basic things should be familiar to many
 people so let's not waste time here.
 
-I do not like the default zsh shell that comes with Mac nowadays. So, first thing I did is change it to bash. From the terminal,
-`/System/Applications/Utilities/Terminal.app`, I changed it as below
+I do not like the default zsh shell that comes with Mac nowadays. So, first thing I did is change it to bash.
+From the terminal, `/System/Applications/Utilities/Terminal.app`, I changed it as below
 
 ```bash
 chsh -s /bin/bash
@@ -42,17 +49,17 @@ which looks like this if you haven't seen one before.
 
 Then I created `.bashrc` and `.bash_profile` files in `$HOME` based on my previous laptop. Where
 is your `$HOME`? Just type `echo $HOME` in the terminal, and you'll find it.
-As the content in `.bashrc` and `.bash_profile` is personal,
-I will not display it here. You will find it useful to have these hidden files set up
-for aliases and exporting path to programs/software that you use. Aliases are great to create
-short commands to login to server.
+
+As the content in `.bashrc` and `.bash_profile` is personal, I will not display it here.
+You will find it useful to have these hidden files set up for aliases and exporting path
+to programs/software that you use. Aliases are great to create short commands to login to server.
 
 Then I installed Java development kit `java version "16.0.1" 2021-04-20`: https://www.oracle.com/au/java/technologies/javase-downloads.html simply because many tools will likely use Java.
 
-The I get myself a text editor. I use Atom: https://atom.io/
+The I get myself a text editor. I use [Atom](https://atom.io/)
 
 As I view sequences a lot, I need [Artemis](https://www.sanger.ac.uk/tool/artemis/) installed. There are other genome or sequence
-browser but I like this one.
+browsers but I like this one.
 
 Useful page for Artemis commands: https://sanger-pathogens.github.io/Artemis/Artemis/artemis-manual.html#_Toc532218858
 
@@ -71,6 +78,7 @@ Trying to set up conda now to install Artemis.
 
 Figured that I do not even have brew to use wget as this is a new laptop!
 So, need to get homebrew first from here: https://brew.sh/
+
 If you wish to know, I even show how the installation log looks like below.
 
 ```bash
