@@ -668,7 +668,9 @@ for (i in 1:length(missing)) BiocManager::install(missing[i])
 
 Test my new laptop GitHub desktop connection to GitHub using Atom.
 
-First, set up GitHub Desktop.
+First, set up GitHub Desktop. Download from here: https://desktop.github.com/
+
+The launch GitHub Desktop and complete below.
 
 Step 1
 ![Step 1](github_desktop_step1.png)
