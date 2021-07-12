@@ -12,7 +12,7 @@
 ## Basic setup for bioinformaticians
 
 One question I often get asked is what laptop to get for bioinformatics? You can get
-any that runs Linux or a Unix flavour. If you have the money, go for MacBook Pro because
+any that runs Linux or a Unix flavour operating system. If you have the money, go for MacBook Pro because
 it has nice display.
 
 I have recently purchased a new MacBook Pro (13-inch, 2020, Four Thunderbolt 3 ports,
@@ -22,7 +22,7 @@ without using time machine to migrate data from the old laptop to this new one. 
 be useful to someone who is starting new in bioinformatics. Do note that my work area is
 in the sequencing space so it will be different to someone working in say the proteomics space.
 
-After you open the Mac and follow the instruction to get touch ID, Apple ID etc set up, you'll
+After you open the Mac and follow the instructions to get touch ID, Apple ID etc set up, you'll
 be ready for something deeper that I'll describe below. When setting up, basic things you'll
 need is email and if you collaborate with people who use Microsoft, then you will need
 at least Microsoft Word. For email, under `System Preferences > Internet Accounts`, you'll
@@ -40,43 +40,25 @@ which looks like this if you haven't seen one before.
 
 ![Terminal](terminal.png)
 
-Then I create `.bashrc` and `.bash_profile` files based on my previous laptop. As the content is personal,
+Then I created `.bashrc` and `.bash_profile` files in `$HOME` based on my previous laptop. Where
+is your `$HOME`? Just type `echo $HOME` in the terminal, and you'll find it.
+As the content in `.bashrc` and `.bash_profile` is personal,
 I will not display it here. You will find it useful to have these hidden files set up
 for aliases and exporting path to programs/software that you use. Aliases are great to create
 short commands to login to server.
 
-Then I installed Java development kit `java version "16.0.1" 2021-04-20`: https://www.oracle.com/au/java/technologies/javase-downloads.html
+Then I installed Java development kit `java version "16.0.1" 2021-04-20`: https://www.oracle.com/au/java/technologies/javase-downloads.html simply because many tools will likely use Java.
 
+The I get myself a text editor. I use Atom: https://atom.io/
 
-<a name="Rupgrade"></a>
-## Upgrading R/Rstudio or reinstall packages from old laptop to new one
+As I view sequences a lot, I need [Artemis](https://www.sanger.ac.uk/tool/artemis/) installed. There are other genome or sequence
+browser but I like this one.
 
+Useful page for Artemis commands: https://sanger-pathogens.github.io/Artemis/Artemis/artemis-manual.html#_Toc532218858
 
-<a name="software"></a>
-## Software to set up
-I decided to copy from my old laptop to external HD, then copy to new laptop.
+Somehow, I found installing straight with git clone as per this link does not work: https://github.com/sanger-pathogens/Artemis
 
-Software needed
-
-GitHub Desktop Done
-
-Atom Done
-
-Gimp Done
-
-R reinstall Done
-
-Rstudio reinstall Done.
-
-FigTree v1.4.4 Done.
-
-Artemis stuff all screwed up, need to re-establish them.
-This affects art, act, bamview and DNAPlotter.
-Useful page for artemis commands: https://sanger-pathogens.github.io/Artemis/Artemis/artemis-manual.html#_Toc532218858
-Reinstalled. Done.
-
-Doing straight git clone using this link, does not work. https://github.com/sanger-pathogens/Artemis
-
+After git clone, I got below error. Not sure why but I tried conda to install it.
 ```console
 a1223107@LC02FV06VML85:~/Documents/Software/Artemis$ ./art
 Starting Artemis with arguments: -mx2g -ms100m -noverify --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED -Djdbc.drivers=org.postgresql.Driver -Dartemis.environment=UNIX  -Dapple.laf.useScreenMenuBar=true -Xdock:name=Artemis
@@ -85,13 +67,13 @@ Error: Could not find or load main class uk.ac.sanger.artemis.components.Artemis
 Caused by: java.lang.ClassNotFoundException: uk.ac.sanger.artemis.components.ArtemisMain
 ```
 
-Trying to set up conda now to install artemis.
+Trying to set up conda now to install Artemis.
 
-Figured that I do not even have brew to use wget. So, need to get homebrew first. https://brew.sh/
+Figured that I do not even have brew to use wget as this is a new laptop!
+So, need to get homebrew first from here: https://brew.sh/
+If you wish to know, I even show how the installation log looks like below.
 
 ```bash
-$ pwd
-/Users/a1223107
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
@@ -157,19 +139,7 @@ Password:
 
 Press RETURN to continue or any other key to abort
 ==> /usr/bin/sudo /bin/chmod u+rwx /usr/local/bin /usr/local/include /usr/local/lib /usr/local/share /usr/local/lib/pkgconfig /usr/local/share/info /usr/local/share/man /usr/local/share/man/man1 /usr/local/share/man/man3 /usr/local/share/man/man5
-==> /usr/bin/sudo /bin/chmod g+rwx /usr/local/bin /usr/local/include /usr/local/lib /usr/local/share /usr/local/lib/pkgconfig /usr/local/share/info /usr/local/share/man /usr/local/share/man/man1 /usr/local/share/man/man3 /usr/local/share/man/man5
-==> /usr/bin/sudo /usr/sbin/chown a1223107 /usr/local/bin /usr/local/include /usr/local/lib /usr/local/share /usr/local/lib/pkgconfig /usr/local/share/info /usr/local/share/man /usr/local/share/man/man1 /usr/local/share/man/man3 /usr/local/share/man/man5
-==> /usr/bin/sudo /usr/bin/chgrp admin /usr/local/bin /usr/local/include /usr/local/lib /usr/local/share /usr/local/lib/pkgconfig /usr/local/share/info /usr/local/share/man /usr/local/share/man/man1 /usr/local/share/man/man3 /usr/local/share/man/man5
-==> /usr/bin/sudo /bin/mkdir -p /usr/local/etc /usr/local/sbin /usr/local/var /usr/local/opt /usr/local/share/zsh /usr/local/share/zsh/site-functions /usr/local/var/homebrew /usr/local/var/homebrew/linked /usr/local/Cellar /usr/local/Caskroom /usr/local/Frameworks
-==> /usr/bin/sudo /bin/chmod u=rwx,g=rwx /usr/local/etc /usr/local/sbin /usr/local/var /usr/local/opt /usr/local/share/zsh /usr/local/share/zsh/site-functions /usr/local/var/homebrew /usr/local/var/homebrew/linked /usr/local/Cellar /usr/local/Caskroom /usr/local/Frameworks
-==> /usr/bin/sudo /bin/chmod g-w,o-w /usr/local/share/zsh /usr/local/share/zsh/site-functions
-==> /usr/bin/sudo /usr/sbin/chown a1223107 /usr/local/etc /usr/local/sbin /usr/local/var /usr/local/opt /usr/local/share/zsh /usr/local/share/zsh/site-functions /usr/local/var/homebrew /usr/local/var/homebrew/linked /usr/local/Cellar /usr/local/Caskroom /usr/local/Frameworks
-==> /usr/bin/sudo /usr/bin/chgrp admin /usr/local/etc /usr/local/sbin /usr/local/var /usr/local/opt /usr/local/share/zsh /usr/local/share/zsh/site-functions /usr/local/var/homebrew /usr/local/var/homebrew/linked /usr/local/Cellar /usr/local/Caskroom /usr/local/Frameworks
-==> /usr/bin/sudo /bin/mkdir -p /usr/local/Homebrew
-==> /usr/bin/sudo /usr/sbin/chown -R a1223107:admin /usr/local/Homebrew
-==> /usr/bin/sudo /bin/mkdir -p /Users/a1223107/Library/Caches/Homebrew
-==> /usr/bin/sudo /bin/chmod g+rwx /Users/a1223107/Library/Caches/Homebrew
-==> /usr/bin/sudo /usr/sbin/chown -R a1223107 /Users/a1223107/Library/Caches/Homebrew
+<...truncated some lines here...>
 ==> Downloading and installing Homebrew...
 remote: Enumerating objects: 187070, done.
 remote: Counting objects: 100% (222/222), done.
@@ -437,7 +407,8 @@ No analytics data has been sent yet (or will be during this `install` run).
 </p>
 </details>
 
-Then get wget
+Then get wget with brew. Note that MacOS comes with `curl` that does similar thing
+like `wget` but I like `wget` better.
 
 ```console
 brew install wget
@@ -445,7 +416,7 @@ brew install wget
 
 <details>
 <summary>
-<i> BREW installation </i>
+<i> BREW installation of wget </i>
 </summary>
 <p>
 ==> Downloading https://ghcr.io/v2/homebrew/core/gettext/manifests/0.21
@@ -493,7 +464,7 @@ brew install wget
 </p>
 </details>
 
-Getting miniconda. Two useful pages
+Getting miniconda. Below are two useful wep pages for this purpose.
 
 https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/install/macos.html
 
@@ -506,27 +477,26 @@ https://docs.conda.io/projects/continuumio-conda/en/latest/user-guide/getting-st
 <p>
 
 ```console
-a1223107@LC02FV06VML85:~$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
+$ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
 --2021-07-12 14:39:40--  https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
-Resolving repo.anaconda.com (repo.anaconda.com)... 2606:4700::6810:8303, 2606:4700::6810:8203, 104.16.131.3, ...
-Connecting to repo.anaconda.com (repo.anaconda.com)|2606:4700::6810:8303|:443... connected.
+<...truncated some lines...>
 HTTP request sent, awaiting response... 200 OK
 Length: 57112343 (54M) [application/x-sh]
-Saving to: ‘/Users/a1223107/miniconda.sh’
+Saving to: ‘/Users/XXX/miniconda.sh’
 
-/Users/a1223107/minicon 100%[==============================>]  54.47M  2.38MB/s    in 23s
+/Users/XXX/minicon 100%[==============================>]  54.47M  2.38MB/s    in 23s
 
-2021-07-12 14:40:03 (2.37 MB/s) - ‘/Users/a1223107/miniconda.sh’ saved [57112343/57112343]
+2021-07-12 14:40:03 (2.37 MB/s) - ‘/Users/XXX/miniconda.sh’ saved [57112343/57112343]
 
-a1223107@LC02FV06VML85:~$ bash ~/miniconda.sh -b -p $HOME/miniconda
-PREFIX=/Users/a1223107/miniconda
+$ bash ~/miniconda.sh -b -p $HOME/miniconda
+PREFIX=/Users/XXX/miniconda
 Unpacking payload ...
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
 ## Package Plan ##
 
-  environment location: /Users/a1223107/miniconda
+  environment location: /Users/XXX/miniconda
 
   added / updated specs:
     - brotlipy==0.7.0=py38h9ed2024_1003
@@ -611,46 +581,12 @@ installation finished.
 </details>
 
 Making conda always available when shell opens, hence the `(base)` in the command
-prompt.
+prompt. Note that you'll need to substitute the path to your own miniconda. It should
+be in `$HOME/miniconda/bin`
 
 ```console
-a1223107@LC02FV06VML85:~$ source /Users/a1223107/miniconda/bin/activate
-(base) a1223107@LC02FV06VML85:~$ conda init
-no change     /Users/a1223107/miniconda/condabin/conda
-no change     /Users/a1223107/miniconda/bin/conda
-no change     /Users/a1223107/miniconda/bin/conda-env
-no change     /Users/a1223107/miniconda/bin/activate
-no change     /Users/a1223107/miniconda/bin/deactivate
-no change     /Users/a1223107/miniconda/etc/profile.d/conda.sh
-no change     /Users/a1223107/miniconda/etc/fish/conf.d/conda.fish
-no change     /Users/a1223107/miniconda/shell/condabin/Conda.psm1
-no change     /Users/a1223107/miniconda/shell/condabin/conda-hook.ps1
-no change     /Users/a1223107/miniconda/lib/python3.8/site-packages/xontrib/conda.xsh
-no change     /Users/a1223107/miniconda/etc/profile.d/conda.csh
-modified      /Users/a1223107/.bash_profile
-
-==> For changes to take effect, close and re-open your current shell. <==
-
-(base) a1223107@LC02FV06VML85:~$ cat /Users/a1223107/.bash_profile
-if [ -f ~/.bashrc ]; then
-	source ~/.bashrc
-fi
-
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/a1223107/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/a1223107/miniconda/etc/profile.d/conda.sh" ]; then
-        . "/Users/a1223107/miniconda/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/a1223107/miniconda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+$ source <path-to>miniconda/bin/activate
+(base) XXX:~$ conda init
 ```
 
 Then I `conda deactivate` and closed the terminal.
@@ -659,126 +595,30 @@ Open a new one in `$HOME`. Note that the environment for conda is always activat
 
 Now I can get Artemis.
 
-<details>
-<summary>
-<i> Artemis installation </i>
-</summary>
-<p>
-
 ```console
 conda install -c bioconda artemis
-Collecting package metadata (current_repodata.json): done
-Solving environment: done
-
-## Package Plan ##
-
-  environment location: /Users/a1223107/miniconda
-
-  added / updated specs:
-    - artemis
-
-
-The following packages will be downloaded:
-
-    package                    |            build
-    ---------------------------|-----------------
-    artemis-18.1.0             |       hdfd78af_1       124.8 MB  bioconda
-    ca-certificates-2021.7.5   |       hecd8cb5_1         113 KB
-    certifi-2021.5.30          |   py38hecd8cb5_0         139 KB
-    conda-4.10.3               |   py38hecd8cb5_0         2.9 MB
-    openjdk-11.0.6             |       h7bc2e8c_1       215.4 MB
-    openssl-1.1.1k             |       h9ed2024_0         2.2 MB
-    ------------------------------------------------------------
-                                           Total:       345.5 MB
-
-The following NEW packages will be INSTALLED:
-
-  artemis            bioconda/noarch::artemis-18.1.0-hdfd78af_1
-  openjdk            pkgs/main/osx-64::openjdk-11.0.6-h7bc2e8c_1
-
-The following packages will be UPDATED:
-
-  ca-certificates                              2020.10.14-0 --> 2021.7.5-hecd8cb5_1
-  certifi            pkgs/main/noarch::certifi-2020.6.20-p~ --> pkgs/main/osx-64::certifi-2021.5.30-py38hecd8cb5_0
-  conda                                4.9.2-py38hecd8cb5_0 --> 4.10.3-py38hecd8cb5_0
-  openssl                                 1.1.1h-haf1e3a3_0 --> 1.1.1k-h9ed2024_0
-
-
-Proceed ([y]/n)? y
-
-
-Downloading and Extracting Packages
-openssl-1.1.1k       | 2.2 MB    | ##################################################################################################################################################################### | 100%
-openjdk-11.0.6       | 215.4 MB  | ##################################################################################################################################################################### | 100%
-artemis-18.1.0       | 124.8 MB  | ##################################################################################################################################################################### | 100%
-ca-certificates-2021 | 113 KB    | ##################################################################################################################################################################### | 100%
-conda-4.10.3         | 2.9 MB    | ##################################################################################################################################################################### | 100%
-certifi-2021.5.30    | 139 KB    | ##################################################################################################################################################################### | 100%
-Preparing transaction: done
-Verifying transaction: done
-Executing transaction: done
-```
-</p>
-</details>
-
-Apps to directly transfer over. 35 items.
-
-```bash
-drwxr-xr-x@  3 lloyd  staff   102B  4 Dec  2019 ACT.app/
-drwxr-xr-x   4 lloyd  staff   136B 30 May  2020 Adobe Digital Editions 4.5.app/
-lrwxr-xr-x   1 lloyd  staff    44B 13 Mar  2018 Adobe Digital Editions.app@ -> /Applications/Adobe Digital Editions 4.5.app
-drwxr-xr-x@  3 lloyd  staff   102B  4 Dec  2019 BamView.app/
-drwxr-xr-x@  3 lloyd  staff   102B  4 Dec  2019 Circular-Plot.app/
-drwxrwxr-x   3 lloyd  staff   102B 16 Jun 17:35 Cisco Webex Meetings.app/
-drwxr-xr-x   3 lloyd  staff   102B 31 Aug  2020 DBeaver.app/
-drwxr-xr-x@  3 lloyd  staff   102B 13 Aug  2013 DNAPlotter.app/
-drwxr-xr-x@  3 lloyd  staff   102B 13 Mar 22:36 Docker.app/
-drwxr-xr-x   3 lloyd  staff   102B  8 Jul 20:14 Dropbox.app/
-drwxr-xr-x@  3 lloyd  staff   102B 24 Dec  2019 FileZilla.app/
-drwxr-xr-x   3 lloyd  staff   102B 16 Jun 09:14 Firefox.app/
-drwxr-xr-x   3 lloyd  staff   102B 16 Jun 17:11 GitHub Desktop.app/
-drwxr-xr-x@  3 lloyd  staff   102B  5 Jan  2017 Gnuplot.app/
-drwxr-xr-x   3 lloyd  staff   102B 21 Dec  2020 GoToMeeting.app/
-drwxr-xr-x   3 lloyd  staff   102B 17 Jun 14:28 Google Chrome.app/
-drwxr-xr-x@  3 lloyd  staff   102B  1 Dec  2016 Google Drive.app/
-drwxr-xr-x@  3 lloyd  staff   102B 22 Jul  2016 HDFView.app/
-drwxr-xr-x@  3 lloyd  staff   102B 30 May 14:56 MSG Viewer for Outlook.app/
-drwxr-xr-x@  3 lloyd  staff   102B 25 Feb  2015 Mauve.app/
-drwxr-xr-x@  3 lloyd  staff   102B 19 Apr 17:29 Mendeley Desktop.app/
-drwxr-xr-x@  3 lloyd  staff   102B  1 Feb 00:34 MenuMeters.app/
-drwxr-xr-x   3 lloyd  staff   102B  1 Mar  2018 OmniDiskSweeper.app/
-drwxr-xr-x@  3 lloyd  staff   102B 20 Mar  2020 OmniGraffle.app/
-drwxr-xr-x   3 lloyd  staff   102B  6 Sep  2017 Opera.app/
-drwxr-xr-x@  3 lloyd  staff   102B 25 Jun 11:25 PDF Reader Pro Lite.app/
-drwxr-xr-x   3 lloyd  staff   102B 16 Nov  2015 Paintbrush.app/
-drwxr-xr-x   3 lloyd  staff   102B  3 Apr  2018 Paragon NTFS for Mac 15.app/
-drwxr-xr-x   3 lloyd  staff   102B  3 Apr  2018 Paragon VMDK Mounter.app/
-drwxrwxr-x   3 lloyd  staff   102B  6 Jun 11:43 R.app/
-drwxr-xr-x@  3 lloyd  staff   102B 25 May 09:54 RStudio.app/
-drwxr-xr-x   3 lloyd  staff   102B  4 Jun 11:43 Skype.app/
-drwxrwxr-x  10 lloyd  staff   340B  4 Mar  2020 Stata/
-drwxr-xr-x   3 lloyd  staff   102B 29 May  2020 The Unarchiver.app/
-drwxr-xr-x   3 lloyd  staff   102B 29 Jun 02:21 WhatsApp.app/
 ```
 
-*11/07/2021*
-Test my new laptop GitHub desktop connection to GitHub using Atom. Done.
+After the installation, you can run Artemis anywhere from your terminal by typing `art`.
 
-GitHub Desktop set up
-Step 1
-![Step 1](github_desktop_step1.png)
+```console
+art
+Starting Artemis with arguments: -mx2g -ms100m -noverify --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED -Djdbc.drivers=org.postgresql.Driver -Dartemis.environment=UNIX  -Dapple.laf.useScreenMenuBar=true -Xdock:name=Artemis
+```
 
-Step 2
-![Step 2](github_desktop_step2.png)
+![Artemis](artemis.png)
 
-*12/07/2021*
+<a name="Rupgrade"></a>
+## Upgrading R/Rstudio or reinstall packages from old laptop to new one
 
-To reinstall R and Rstudio on my new MacBook Pro. The `installed_old.rda` object can
-be from the existing laptop that one wishes to upgrade the R version or from an
-older laptop.
+This is to reinstall R and Rstudio on my new MacBook Pro. The `installed_old.rda` object can
+be from an existing laptop that one wishes to upgrade the R version or from an
+older laptop migrated to the newer one. Therefore, the method below will work whether
+you are upgrading or reinstalling on a new laptop.
 
 Note that some personal packages such as from GitHub that are not part of CRAN and
 BioConductor will not be installed and these need to be managed individually for now.
+Fortunately, I do not have many of these packages, maybe under 10 packages.
 
 ```R
 #Before you upgrade, build a temp file with all of your old packages.
@@ -822,3 +662,16 @@ missing <- setdiff(installedpkgs, installedpkgs.new)
 # for (i in 1:length(missing)) biocLite(missing[i]) #biocLite() deprecated in R v4+
 for (i in 1:length(missing)) BiocManager::install(missing[i])
 ```
+
+<a name="gitdesk"></a>
+## Setting up GitHub Desktop for code collaboration
+
+Test my new laptop GitHub desktop connection to GitHub using Atom.
+
+First, set up GitHub Desktop.
+
+Step 1
+![Step 1](github_desktop_step1.png)
+
+Step 2
+![Step 2](github_desktop_step2.png)
