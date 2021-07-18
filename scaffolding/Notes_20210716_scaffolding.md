@@ -6,7 +6,7 @@
 * [Bionano map](#bn)
 
 <a name="bn"></a>
-## Brahman and Angus bionano data.
+## Brahman and Angus bionano data
 
 I will be generating an upgraded Angus x Brahman assemblies using a lot more
 PacBio and Oxford Nanopore reads. The first version of the assembly is
