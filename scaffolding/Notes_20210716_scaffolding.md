@@ -74,3 +74,31 @@ Angus_selected  Brahman_selected  compressed  Offspring  readme
 16G	./Brahman_selected
 72G	.
 ```
+
+*16/07/2021*
+Joyce: The molecules (.bnx) should be in the auto_noise folder, which is one of the folders you listed, so I think you have the raw data. The name of the molecule file is autoNoise1_rescaled.bnx.
+
+```console
+[a1223107@l01 bionano]$ pwd
+/uofaresstor/avsci2/Lloyd_a1223107/big_migration_end2020/Angus_x_Brahman_data/bionano
+
+[a1223107@l01 bionano]$ ls -lah ./Angus_selected/Angus_nonhap_ES_sdb_m3_20180818_pipeline_results/contigs/auto_noise/autoNoise1_rescaled.bnx
+-rw-r--r-- 1 a1223107 phoenix-hpc-avsci 853M Nov 26  2020 ./Angus_selected/Angus_nonhap_ES_sdb_m3_20180818_pipeline_results/contigs/auto_noise/autoNoise1_rescaled.bnx
+
+[a1223107@l01 bionano]$ ls -lah ./Brahman_selected/Brahma_nonhap_ES_sdb_m3_20180818_pipeline_results/contigs/auto_noise/autoNoise1_rescaled.bnx
+-rw-r--r-- 1 a1223107 phoenix-hpc-avsci 875M Nov 26  2020 ./Brahman_selected/Brahma_nonhap_ES_sdb_m3_20180818_pipeline_results/contigs/auto_noise/autoNoise1_rescaled.bnx
+
+[a1223107@l01 bionano]$ ls -lah ./Offspring/USDA_bull_fetus_nonhap_ES_sdb_08012018_pipeline_results/contigs/auto_noise/autoNoise1_rescaled.bnx
+-rw-r--r-- 1 a1223107 phoenix-hpc-avsci 1.7G Nov 26  2020 ./Offspring/USDA_bull_fetus_nonhap_ES_sdb_08012018_pipeline_results/contigs/auto_noise/autoNoise1_rescaled.bnx
+
+
+[a1223107@l01 bionano]$ md5sum ./Angus_selected/Angus_nonhap_ES_sdb_m3_20180818_pipeline_results/contigs/auto_noise/autoNoise1_rescaled.bnx
+fe52ce3ec4e6c29304cc36e2f658ed23  ./Angus_selected/Angus_nonhap_ES_sdb_m3_20180818_pipeline_results/contigs/auto_noise/autoNoise1_rescaled.bnx
+
+[a1223107@l01 bionano]$ md5sum ./Brahman_selected/Brahma_nonhap_ES_sdb_m3_20180818_pipeline_results/contigs/auto_noise/autoNoise1_rescaled.bnx
+2d3b44c74fb9f4ea035a9824962bdab4  ./Brahman_selected/Brahma_nonhap_ES_sdb_m3_20180818_pipeline_results/contigs/auto_noise/autoNoise1_rescaled.bnx
+
+[a1223107@l01 bionano]$ md5sum ./Offspring/USDA_bull_fetus_nonhap_ES_sdb_08012018_pipeline_results/contigs/auto_noise/autoNoise1_rescaled.bnx
+0969987093a7767290177b3512f1cb68  ./Offspring/USDA_bull_fetus_nonhap_ES_sdb_08012018_pipeline_results/contigs/auto_noise/autoNoise1_rescaled.bnx
+
+```
