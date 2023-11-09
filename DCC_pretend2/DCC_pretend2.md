@@ -34,3 +34,16 @@ rule bwa_map:
     shell:
         "bwa mem {input} | samtools view -Sb - > {output}"
 ```
+
+# Rules for step 2 (Step 2: Generalizing the read mapping rule)
+
+```console
+rule bwa_map:
+    input:
+        "data/genome.fa",
+        "data/samples/{sample}.fastq"
+    output:
+        "mapped_reads/{sample}.bam"
+    shell:
+        "bwa mem {input} | samtools view -Sb - > {output}"
+```
