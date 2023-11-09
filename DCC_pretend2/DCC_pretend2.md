@@ -34,3 +34,5 @@ rule bwa_map:
     shell:
         "bwa mem {input} | samtools view -Sb - > {output}"
 ```
+
+## Testing
