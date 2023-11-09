@@ -60,7 +60,7 @@ rule samtools_sort:
         "-O bam {input} > {output}"
 ```
 
-#Step 4: Indexing read alignments and visualizing the DAG of jobs
+# Step 4: Indexing read alignments and visualizing the DAG of jobs
 ```console
 rule samtools_index:
     input:
