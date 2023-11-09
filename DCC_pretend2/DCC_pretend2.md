@@ -48,6 +48,7 @@ rule bwa_map:
         "bwa mem {input} | samtools view -Sb - > {output}"
 ```
 
+# Rules for Step 3 Sorting read alignments
 ```console
 rule samtools_sort:
     input:
@@ -57,4 +58,15 @@ rule samtools_sort:
     shell:
         "samtools sort -T sorted_reads/{wildcards.sample} "
         "-O bam {input} > {output}"
+```
+
+#Step 4: Indexing read alignments and visualizing the DAG of jobs
+```console
+rule samtools_index:
+    input:
+        "sorted_reads/{sample}.bam"
+    output:
+        "sorted_reads/{sample}.bam.bai"
+    shell:
+        "samtools index {input}"
 ```
