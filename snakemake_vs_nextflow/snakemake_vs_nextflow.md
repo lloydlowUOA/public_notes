@@ -1,6 +1,11 @@
 # To snake or to flow: comparison of Snakemake and Nextflow
 ---
-Authors: Lloyd Low
+Authors: [Lloyd Low](https://researchers.adelaide.edu.au/profile/wai.low)
+
+Role: Senior Bioinformatician
+
+Affiliation: University of Adelaide
+
 *14/12/2023*
 
 ## Table of Contents
