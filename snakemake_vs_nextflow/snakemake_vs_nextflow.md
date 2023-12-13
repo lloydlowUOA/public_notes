@@ -14,6 +14,7 @@ Affiliation: University of Adelaide
 * [Shell scripting](#shell)
 * [Snakemake](#snakemake)
 * [Nextflow](#nextflow)
+* [Acknowledgements](#Acknowledgements)
 
 <a name="workflow"></a>
 ## Workflow management system
@@ -56,3 +57,8 @@ I recommend [Snakemake tutorial](https://snakemake.readthedocs.io/en/stable/tuto
 ![Nextflow](nextflow.png)
 
 I recommend [Nextflow tutorial](https://www.nextflow.io/docs/latest/getstarted.html)
+
+<a name="Acknowledgements"></a>
+## Acknowledgements
+
+I thank the Davies coding club members for practicing on code similar to the one presented here. In particular, special thanks to Callum MacPhillamy, my post-doc, who coded the majority of the pipelines presented here. 
