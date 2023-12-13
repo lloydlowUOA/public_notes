@@ -1,9 +1,11 @@
 # To snake or to flow: comparison of Snakemake and Nextflow
 ---
+Authors: Lloyd Low
 *14/12/2023*
 
 ## Table of Contents
 * [Workflow management system](#workflow)
+* [Prerequisites](#pre)
 * [Shell scripting](#shell)
 * [Snakemake](#snakemake)
 * [Nextflow](#nextflow)
@@ -16,6 +18,11 @@ Why you should consider learning a proper workflow manager?
 * Reproducibility
 * Efficiency (think parallel executions)
 * Ease of resuming partially completed runs
+
+<a name="pre"></a>
+## Prerequisites
+
+* Knowledge in shell scripting is assumed for this workshop
 
 <a name="shell"></a>
 ## Shell scripting
