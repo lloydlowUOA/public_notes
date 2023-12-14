@@ -32,6 +32,7 @@ Why you should consider learning a proper workflow manager?
 
 * Knowledge of Linux and basic skills in installing tools
 * Knowledge in Shell scripting is assumed for this workshop
+* Basic understanding of genetics such as why calling SNPs is important
 
 <a name="data"></a>
 ## Dataset
