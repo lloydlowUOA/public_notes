@@ -187,7 +187,7 @@ snakemake -n -s Snakefile --configfile config.yaml --dag | dot -Tsvg > snakedag.
 snakemake --cores 16 -s Snakefile --configfile config.yaml
 ```
 
-The ![snake dag](snakedag.svg) ...
+The snake dag ... ![snake dag](snakedag.svg) 
 
 <a name="nextflow"></a>
 ## Nextflow
