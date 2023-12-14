@@ -194,6 +194,33 @@ done < ${sampleID}.chromosomes.txt
 
 ![Snakemake](snakemake.png)
 
+Snakemake is a workflow management system designed to create and manage computational workflows. It is particularly well-suited for bioinformatics and data analysis pipelines but can be used for any workflow that involves the execution of multiple jobs with dependencies.
+
+Key features of Snakemake:
+
+<details>
+<summary>
+<i> Key features of Snakemake </i>
+</summary>
+<p>
+
+* Declarative Workflow Definition: Workflows are defined in a human-readable, Python-based domain-specific language. This language allows you to specify rules, input and output files, and the steps to generate the output from the input.
+
+* Automatic Dependency Resolution: Snakemake automatically analyzes the workflow and determines the dependencies between different steps. This makes it easier to express the relationships between different tasks in your analysis.
+
+* Parallel and Cluster Execution: Snakemake can execute jobs in parallel, taking advantage of multicore systems. It also supports execution on computing clusters, distributing jobs across nodes.
+
+* Dynamic Workflow: Snakemake supports dynamic workflows, meaning that the workflow can adapt based on certain conditions or inputs. This is useful when dealing with large datasets or complex analyses.
+
+* Logging and Reporting: Snakemake provides detailed logging of each step in the workflow, making it easier to diagnose issues. It also generates HTML reports summarizing the execution of the workflow.
+
+* Integration with Conda: Snakemake can automatically create and manage conda environments, ensuring that the required software dependencies are available for each step in the workflow.
+
+* Community and Documentation: Snakemake has an active community, and there is extensive documentation available. The community provides support and shares workflows, making it easier to adopt and extend existing pipelines.
+
+</p>
+</details>
+
 I recommend [Snakemake tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html) and this paper by [Koster and Rahmann 2012](https://academic.oup.com/bioinformatics/article/28/19/2520/290322) on its history.
 
 Both Snakemake and Nextflow are using dataflow programming language. Think of this as mapping on inputs and outputs; jobs that have gathered all required inputs will immediately run. Print out the directed acyclic graph will help you visualize your jobs.
