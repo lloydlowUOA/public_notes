@@ -86,7 +86,7 @@ The steps are
 * Mapping to a ref with BWA
 * Mark duplicates with Picard or SamBamba
 * Samtools stats, idxstats, flagstats on the BAM files
-* Call variants using bcfools(OPTIONAL: split by chromosome)
+* Call variants using bcfools (OPTIONAL: split by chromosome)
 * Multiqc report
 
 ```bash
@@ -199,6 +199,8 @@ snakemake --cores 16 -s Snakefile --configfile config.yaml
 ```
 
 The snake dag ... ![snake dag](snakedag.svg)
+
+[Multiqc report](snakemake_multiqc_report.html)
 
 <a name="nextflow"></a>
 ## Nextflow
