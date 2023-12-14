@@ -56,10 +56,6 @@ Sample3.R1.fastq.gz
 
 Sample3.R2.fastq.gz
 
-Download here:
-
-https://drive.google.com/drive/folders/1UQCkgNg2AAjP4ctD3K-ISc8EWVulngaM?usp=drive_link
-
 ### Reference genome (only chr 28 and chr 29)
 
 ARS-UCD2.0_demo.fa
@@ -75,6 +71,10 @@ ARS-UCD2.0_demo.fa.fai
 ARS-UCD2.0_demo.fa.pac
 
 ARS-UCD2.0_demo.fa.sa
+
+Download here:
+
+https://drive.google.com/drive/folders/1UQCkgNg2AAjP4ctD3K-ISc8EWVulngaM?usp=drive_link
 
 </p>
 </details>
