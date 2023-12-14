@@ -78,6 +78,17 @@ ARS-UCD2.0_demo.fa.sa
 
 This shell script will process the raw fastq files, map to a reference genome and call single nucleotide polymorphisms (SNPs).
 
+The steps are
+
+* Raw reads fastqc
+* Clean and trim reads
+* Fastqc on trimmed reads
+* Mapping to a ref with BWA
+* Mark duplicates with Picard or SamBamba
+* Samtools stats, idxstats, flagstats on the BAM files
+* Call variants using bcfools(OPTIONAL: split by chromosome)
+* Multiqc report
+
 ```bash
 #!/bin/bash
 
@@ -195,6 +206,26 @@ The snake dag ... ![snake dag](snakedag.svg)
 ![Nextflow](nextflow.png)
 
 I recommend [Nextflow tutorial](https://www.nextflow.io/docs/latest/getstarted.html) and this simple example with [blast](https://www.nextflow.io/example3.html).
+
+```console
+$ cat insyb2023.yaml
+name: insyb2023
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - bcftools
+  - bwa
+  - cutadapt
+  - fastqc=0.12.1=hdfd78af_0
+  - sambamba
+  - samtools=1.10
+  - multiqc
+  - trim-galore
+
+mamba env create -f insyb2023.yaml
+```
 
 <a name="Acknowledgements"></a>
 ## Acknowledgements
