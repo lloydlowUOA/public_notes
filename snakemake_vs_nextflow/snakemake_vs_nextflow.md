@@ -701,6 +701,9 @@ workflow {
   ```
 
 Mix-flatten-collect
+
+Example `prededup_stats = prededup_stat.mix( prededup_flag, prededup_idx ).flatten().collect()`
+
 <details>
 <summary>
 <i> Mix-flatten-collect </i>
