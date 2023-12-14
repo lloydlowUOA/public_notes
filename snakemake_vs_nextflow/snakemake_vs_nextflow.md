@@ -453,19 +453,19 @@ Key features of Nextflow DSL include:
 </summary>
 <p>
 
-* Declarative Syntax: The DSL allows users to express the logical flow of their analysis in a declarative manner. Users define what tasks need to be performed and how data should flow between them.
+* **Declarative Syntax**: The DSL allows users to express the logical flow of their analysis in a declarative manner. Users define what tasks need to be performed and how data should flow between them.
 
-* Parallelization: Nextflow DSL provides constructs for parallelizing tasks, making it easy to distribute computations across multiple nodes or cores.
+* **Parallelization**: Nextflow DSL provides constructs for parallelizing tasks, making it easy to distribute computations across multiple nodes or cores.
 
-* Data-Driven Workflow: The language is designed to handle data dependencies automatically. Tasks are executed only when their input data becomes available or is updated.
+* **Data-Driven Workflow**: The language is designed to handle data dependencies automatically. Tasks are executed only when their input data becomes available or is updated.
 
-* Abstraction for Containers: Nextflow supports the use of containers (such as Docker or Singularity), providing a level of abstraction for the computational environment, which enhances reproducibility.
+* **Abstraction for Containers**: Nextflow supports the use of containers (such as Docker or Singularity), providing a level of abstraction for the computational environment, which enhances reproducibility.
 
-* Portability: Workflows written in Nextflow DSL can be executed on a variety of computing environments, including local machines, clusters, and cloud platforms.
+* **Portability**: Workflows written in Nextflow DSL can be executed on a variety of computing environments, including local machines, clusters, and cloud platforms.
 
-* Modularity: Nextflow workflows are modular, allowing users to define reusable modules and share them with the community.
+* **Modularity**: Nextflow workflows are modular, allowing users to define reusable modules and share them with the community.
 
-* Error Handling: The DSL includes features for handling errors and retries, providing robustness to workflows.
+* **Error Handling**: The DSL includes features for handling errors and retries, providing robustness to workflows.
 
 </p>
 </details>
