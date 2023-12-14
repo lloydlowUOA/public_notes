@@ -54,7 +54,7 @@ Sample3.R1.fastq.gz
 
 Sample3.R2.fastq.gz
 
-### Reference genome
+### Reference genome (only chr 28 and chr 29)
 
 ARS-UCD2.0_demo.fa
 
@@ -76,7 +76,100 @@ ARS-UCD2.0_demo.fa.sa
 <a name="shell"></a>
 ## Shell scripting
 
+This shell script will process the raw fastq files, map to a reference genome and call single nucleotide polymorphisms (SNPs).
 
+```bash
+#!/bin/bash
+
+#conda activate insyb2023 #ensure all tools such as fastqc, seqkit etc are available
+
+#define variables
+taskcpus=8
+read1=Sample1.R1.fastq.gz
+read2=Sample1.R2.fastq.gz
+sampleID=Sample1
+read1trimmed=Sample1.R1_val_1.fq.gz
+read2trimmed=Sample1.R2_val_2.fq.gz
+ref=ARS-UCD2.0_demo.fa
+avail_mem=3
+bam=Sample1.sorted.bam
+dedupbam=Sample1.markDup.bam
+
+#ensure ref and raw fastq are here
+# ln -s ../raw_fastq/Sample1.R1.fastq.gz ../raw_fastq/Sample1.R2.fastq.gz .
+# ln -s ../reference/* .
+
+#fastqc_raw
+fastqc -t ${taskcpus} ${read1} ${read2}
+
+#seqkit_stats
+seqkit stats -j ${taskcpus} ${read1} ${read2} > ${sampleID}.seqkit.stats
+
+#trim_galore
+trim_galore --quality 30 \
+    --length 75 \
+    --clip_R1 1 \
+    --clip_R2 1 \
+    --three_prime_clip_R1 1 \
+    --three_prime_clip_R2 1 \
+    --paired \
+    --cores ${taskcpus} \
+    ${read1} ${read2}
+
+#fastqc_trimmed
+fastqc -t ${taskcpus} ${read1trimmed} ${read2trimmed}
+
+#bwa_mapping
+bwa mem -M \
+        -t ${taskcpus} \
+        -R "@RG\tID:${sampleID}\tPL:${sampleID}\tLB:${sampleID}\tSM:${sampleID}" \
+        $ref \
+        ${read1trimmed} ${read2trimmed} \
+        | samtools sort --threads ${taskcpus} -o ${sampleID}.sorted.bam
+
+#picard_markDuplicates
+java -jar -Xmx${avail_mem}g /home/lloyd/Software/picard/build/libs/picard.jar MarkDuplicates \
+                I=${bam} \
+                O=${sampleID}.markDup.bam \
+                M=${sampleID}.markDup.metrics.txt \
+                VALIDATION_STRINGENCY=LENIENT \
+                REMOVE_DUPLICATES=false \
+                OPTICAL_DUPLICATE_PIXEL_DISTANCE=100 \
+                CREATE_INDEX=false
+samtools index ${sampleID}.markDup.bam
+
+#bam_stats_pre_dedup
+samtools index ${bam}
+samtools stats ${bam} > ${sampleID}.prededup.stats
+samtools flagstat ${bam} > ${sampleID}.prededup.flagstat
+samtools idxstats ${bam} > ${sampleID}.prededup.idxstats
+
+#bam_stats_post_dedup
+samtools stats ${dedupbam} > ${sampleID}.postdedup.stats
+samtools flagstat ${dedupbam} > ${sampleID}.postdedup.flagstat
+samtools idxstats ${dedupbam} > ${sampleID}.postdedup.idxstats
+
+#split_bam
+samtools idxstats ${dedupbam} | cut -f 1 | grep -v '*' > ${sampleID}.chromosomes.txt
+while IFS= read -r line; do
+    samtools view -b ${dedupbam} ${line} > ${sampleID}.${line}.bam ;
+    samtools index ${sampleID}.${line}.bam
+done < ${sampleID}.chromosomes.txt
+
+#call_genotype
+while IFS= read -r line; do
+    chromosome=$line
+    finalbamExample=${sampleID}.${chromosome}.bam
+
+    bcftools mpileup -f ${ref} ${finalbamExample} | \
+    bcftools call --threads ${taskcpus} -m --output-type z | \
+    bcftools filter --threads ${taskcpus} --output-type z \
+    -s LowQual -e 'QUAL<20 || DP<100' > ${sampleID}.${chromosome}.vcf.gz
+    bcftools index ${sampleID}.${chromosome}.vcf.gz
+    bcftools stats ${sampleID}.${chromosome}.vcf.gz > ${sampleID}.${chromosome}.vcf.stats
+
+done < ${sampleID}.chromosomes.txt
+```  
 
 <a name="snakemake"></a>
 ## Snakemake
