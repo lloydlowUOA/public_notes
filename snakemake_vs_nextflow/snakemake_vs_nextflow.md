@@ -700,6 +700,22 @@ workflow {
 	multiqc(multiqc_files)
   ```
 
+Mix-flatten-collect
+<details>
+<summary>
+<i> Mix-flatten-collect </i>
+</summary>
+<p>
+
+.mix(prededup_flag, prededup_idx): This part uses the mix method. In Groovy, the mix method is often used to combine several collections into a single collection of tuples. It combines the elements at corresponding positions from multiple collections into tuples.
+
+.flatten(): After mixing, the result is a collection of tuples. The flatten method is then used to convert the collection of tuples into a flat collection, essentially removing the nesting and creating a single-level collection.
+
+.collect(): This method collects the results into a new collection. In this context, it might be collecting the flattened tuples into a variable named prededup_stats.
+
+</p>
+</details>
+
 QC
 ```console
 $ cat qc.nf
