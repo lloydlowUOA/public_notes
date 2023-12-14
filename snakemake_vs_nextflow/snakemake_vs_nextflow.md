@@ -40,29 +40,35 @@ Why you should consider learning a proper workflow manager?
 </summary>
 <p>
 
-$ ls -lah raw_fastq/
-total 597M
-drwxrwsr-x  2 lloyd lloyd    9 Dec  5 14:52 .
-drwxrwsr-x 10 lloyd lloyd   10 Dec 13 18:52 ..
--rw-rw-r--  1 lloyd lloyd 6.1K Dec  5 14:29 .DS_Store
--rw-rw-r--  1 lloyd lloyd  82M Dec  5 14:29 Sample1.R1.fastq.gz
--rw-rw-r--  1 lloyd lloyd  83M Dec  5 14:29 Sample1.R2.fastq.gz
--rw-rw-r--  1 lloyd lloyd 127M Dec  5 14:29 Sample2.R1.fastq.gz
--rw-rw-r--  1 lloyd lloyd 128M Dec  5 14:29 Sample2.R2.fastq.gz
--rw-rw-r--  1 lloyd lloyd  89M Dec  5 14:29 Sample3.R1.fastq.gz
--rw-rw-r--  1 lloyd lloyd  90M Dec  5 14:29 Sample3.R2.fastq.gz
+# Raw fastq files
 
-$ ls -lah reference/
-total 192M
-drwxrwsr-x  2 lloyd lloyd   9 Dec  5 14:29 .
-drwxrwsr-x 10 lloyd lloyd  10 Dec 13 18:52 ..
--rw-rw-r--  1 lloyd lloyd 95M Dec  5 14:29 ARS-UCD2.0_demo.fa
--rw-rw-r--  1 lloyd lloyd  97 Dec  5 14:29 ARS-UCD2.0_demo.fa.amb
--rw-rw-r--  1 lloyd lloyd  77 Dec  5 14:29 ARS-UCD2.0_demo.fa.ann
--rw-rw-r--  1 lloyd lloyd 93M Dec  5 14:28 ARS-UCD2.0_demo.fa.bwt
--rw-rw-r--  1 lloyd lloyd  53 Dec  5 14:28 ARS-UCD2.0_demo.fa.fai
--rw-rw-r--  1 lloyd lloyd 24M Dec  5 14:29 ARS-UCD2.0_demo.fa.pac
--rw-rw-r--  1 lloyd lloyd 47M Dec  5 14:28 ARS-UCD2.0_demo.fa.sa
+Sample1.R1.fastq.gz
+
+Sample1.R2.fastq.gz
+
+Sample2.R1.fastq.gz
+
+Sample2.R2.fastq.gz
+
+Sample3.R1.fastq.gz
+
+Sample3.R2.fastq.gz
+
+# Reference genome
+
+ARS-UCD2.0_demo.fa
+
+ARS-UCD2.0_demo.fa.amb
+
+ARS-UCD2.0_demo.fa.ann
+
+ARS-UCD2.0_demo.fa.bwt
+
+ARS-UCD2.0_demo.fa.fai
+
+ARS-UCD2.0_demo.fa.pac
+
+ARS-UCD2.0_demo.fa.sa
 
 </p>
 </details>
