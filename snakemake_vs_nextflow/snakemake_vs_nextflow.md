@@ -416,6 +416,33 @@ rule multiqc:
 
 ![Nextflow](nextflow.png)
 
+Nextflow DSL (Domain Specific Language) refers to the scripting language specifically designed for writing Nextflow workflows. It provides a set of constructs and syntax tailored to the needs of defining data-driven, parallel, and distributed computational workflows. Nextflow DSL enables researchers and bioinformaticians to express complex scientific analyses in a clear and reproducible manner.
+
+Key features of Nextflow DSL include:
+
+<details>
+<summary>
+<i> Key features of Nextflow </i>
+</summary>
+<p>
+
+* Declarative Syntax: The DSL allows users to express the logical flow of their analysis in a declarative manner. Users define what tasks need to be performed and how data should flow between them.
+
+* Parallelization: Nextflow DSL provides constructs for parallelizing tasks, making it easy to distribute computations across multiple nodes or cores.
+
+* Data-Driven Workflow: The language is designed to handle data dependencies automatically. Tasks are executed only when their input data becomes available or is updated.
+
+* Abstraction for Containers: Nextflow supports the use of containers (such as Docker or Singularity), providing a level of abstraction for the computational environment, which enhances reproducibility.
+
+* Portability: Workflows written in Nextflow DSL can be executed on a variety of computing environments, including local machines, clusters, and cloud platforms.
+
+* Modularity: Nextflow workflows are modular, allowing users to define reusable modules and share them with the community.
+
+* Error Handling: The DSL includes features for handling errors and retries, providing robustness to workflows.
+
+</p>
+</details>
+
 I recommend [Nextflow tutorial](https://www.nextflow.io/docs/latest/getstarted.html) and this simple example with [blast](https://www.nextflow.io/example3.html).
 
 Directory structure (when run is complete, so some folders won't be displayed if you start from sratch)
