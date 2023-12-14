@@ -228,6 +228,183 @@ snakemake --cores 16 -s Snakefile --configfile config.yaml
 
 The snake dag ... ![snake dag](snakedag.svg)
 
+The snakefile
+```python3
+rule all:
+	input:
+		"results/multiqc/multiqc_report.html",
+		#expand("results/trim_galore/{sample}_{read}_val_{read}.fq.gz", sample=config["samples"], read=["1", "2"]),
+		#expand("results/bwa/{sample}.bam", sample=config["samples"]),
+		expand("results/bcftools/{sample}.vcf.gz", sample=config["samples"])
+
+rule raw_fastqc:
+	input:
+		r1="/data/home/misc/Snakemake_vs_nextflow/code_club/snakemake_version2/input_data/raw_fastq/{sample}.R1.fastq.gz",
+		r2="/data/home/misc/Snakemake_vs_nextflow/code_club/snakemake_version2/input_data/raw_fastq/{sample}.R2.fastq.gz"
+
+	output:
+		"results/fastqc/raw/{sample}.R1_fastqc.html",
+		"results/fastqc/raw/{sample}.R2_fastqc.html"
+
+	params:
+		threads=4
+
+	log:
+		"logs/fastqc/raw/{sample}.log"
+
+	shell:
+		"""
+		fastqc -t {params.threads} {input.r1} {input.r2} --outdir results/fastqc/raw &> {log}
+		"""
+
+rule trim_galore:
+	input:
+		r1="/data/home/misc/Snakemake_vs_nextflow/code_club/snakemake_version2/input_data/raw_fastq/{sample}.R1.fastq.gz",
+		r2="/data/home/misc/Snakemake_vs_nextflow/code_club/snakemake_version2/input_data/raw_fastq/{sample}.R2.fastq.gz"
+
+	output:
+		"results/trim_galore/{sample}.R1_val_1.fq.gz",
+		"results/trim_galore/{sample}.R2_val_2.fq.gz"
+
+	params:
+		threads=4
+
+	log:
+		"logs/trim_galore/{sample}.log"
+
+	shell:
+		"""
+		trim_galore --quality 30 \
+    	--length 75 \
+    	--clip_R1 1 \
+    	--clip_R2 1 \
+    	--three_prime_clip_R1 1 \
+    	--three_prime_clip_R2 1 \
+    	--paired \
+    	--cores {params.threads} \
+		{input.r1} {input.r2} -o results/trim_galore &> {log}
+		"""
+
+rule trimmed_fastqc:
+	input:
+		r1="results/trim_galore/{sample}.R1_val_1.fq.gz",
+		r2="results/trim_galore/{sample}.R2_val_2.fq.gz"
+
+	output:
+		"results/fastqc/trimmed/{sample}.R1_val_1_fastqc.html",
+		"results/fastqc/trimmed/{sample}.R2_val_2_fastqc.html"
+
+	params:
+		threads=4
+
+	log:
+		"logs/fastqc/trimmed/{sample}.log"
+
+	shell:
+		"""
+		fastqc -t {params.threads} {input.r1} {input.r2} --outdir results/fastqc/trimmed &> {log}
+		"""
+
+rule bwa:
+	input:
+		r1="results/trim_galore/{sample}.R1_val_1.fq.gz",
+		r2="results/trim_galore/{sample}.R2_val_2.fq.gz"
+
+	output:
+		"results/bwa/{sample}.bam"
+
+	params:
+		threads=4
+
+	log:
+		"logs/bwa/{sample}.log"
+
+	shell:
+		"""
+		bwa mem -t {params.threads} \
+		-R "@RG\\tID:{wildcards.sample}\\tSM:{wildcards.sample}\\tPL:{wildcards.sample}" \
+		{config[reference]} \
+		{input.r1} {input.r2} | \
+		samtools view -b - | samtools sort -o {output} &> {log}
+		samtools index {output}
+		"""
+
+rule markDuplicates:
+	input:
+		"results/bwa/{sample}.bam"
+
+	output:
+		"results/picard/{sample}.markDup.bam"
+
+	log:
+		"logs/picard/{sample}.log"
+
+	shell:
+		"""
+		java -jar -Xmx3g /home/lloyd/Software/picard/build/libs/picard.jar MarkDuplicates  \
+        I={input} \
+        O=results/picard/{wildcards.sample}.markDup.bam \
+        M=results/picard/{wildcards.sample}.markDup.metrics.txt \
+        VALIDATION_STRINGENCY=LENIENT \
+        REMOVE_DUPLICATES=false \
+        OPTICAL_DUPLICATE_PIXEL_DISTANCE=100 \
+        CREATE_INDEX=false
+    samtools index results/picard/{wildcards.sample}.markDup.bam
+	"""
+
+rule callVariants:
+	input:
+		"results/picard/{sample}.markDup.bam"
+
+	output:
+		"results/bcftools/{sample}.vcf.gz"
+
+	threads: 4
+
+	log:
+		"logs/bcftools/{sample}.log"
+
+	shell:
+		"""
+		bcftools mpileup -f {config[reference]} {input} | \
+    	bcftools call --threads {threads} -m --output-type z | \
+    	bcftools filter --threads {threads} --output-type z -s LowQual -e 'QUAL<20 || DP<100' > results/bcftools/{wildcards.sample}.vcf.gz
+    	bcftools index results/bcftools/{wildcards.sample}.vcf.gz
+		bcftools stats results/bcftools/{wildcards.sample}.vcf.gz > results/bcftools/{wildcards.sample}.vcf.stats
+		"""
+
+rule multiqc:
+	input:
+		expand("results/fastqc/raw/{sample}.R{read}_fastqc.html", sample=config["samples"], read=["1", "2"]),
+		expand("results/fastqc/trimmed/{sample}.R{read}_val_{read}_fastqc.html", sample=config["samples"], read=["1", "2"]),
+		#expand("results/trim_galore/{sample}_{read}_val_{read}.fq.gz", sample=config["samples"], read=["1", "2"]),
+
+	output:
+		"results/multiqc/multiqc_report.html"
+
+	shell:
+		"""
+		multiqc results/fastqc/raw results/fastqc/trimmed -o results/multiqc
+		"""
+```
+
+After run directory structure
+
+```console
+$ ls -lah
+total 70K
+drwxrwsr-x  6 lloyd lloyd   11 Dec 14 11:39 .
+drwxrwsr-x 10 lloyd lloyd   10 Dec 13 18:52 ..
+-rw-rw-r--  1 lloyd lloyd  164 Dec 13 22:46 config.yaml
+-rw-rw-r--  1 lloyd lloyd  203 Dec 13 18:52 environment.yaml
+drwxrwsr-x  4 lloyd lloyd    4 Dec 13 22:41 input_data
+drwxrwsr-x  7 lloyd lloyd    7 Dec 14 11:43 logs
+-rw-rw-r--  1 lloyd lloyd  218 Dec 13 23:08 mylog
+drwxrwsr-x  8 lloyd lloyd    8 Dec 14 11:43 results
+-rw-rw-r--  1 lloyd lloyd  17K Dec 14 11:31 snakedag.svg
+-rw-rw-r--  1 lloyd lloyd 4.1K Dec 13 23:17 Snakefile
+drwxrwsr-x 11 lloyd lloyd   11 Dec 14 11:39 .snakemake
+```
 
 <a name="nextflow"></a>
 ## Nextflow
