@@ -992,6 +992,8 @@ process call_genotype {
 }
 ```
 
+Nextflow dag ... ![Nextflowdag](nextflowdag.png)
+
 <a name="Acknowledgements"></a>
 ## Acknowledgements
 
