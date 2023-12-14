@@ -16,6 +16,7 @@ Affiliation: University of Adelaide
 * [Snakemake](#snakemake)
 * [Nextflow](#nextflow)
 * [Acknowledgements](#Acknowledgements)
+* [Further self learning](#further)
 
 <a name="workflow"></a>
 ## Workflow management system
@@ -29,7 +30,8 @@ Why you should consider learning a proper workflow manager?
 <a name="pre"></a>
 ## Prerequisites
 
-* Knowledge in shell scripting is assumed for this workshop
+* Knowledge of Linux and basic skills in installing tools
+* Knowledge in Shell scripting is assumed for this workshop
 
 <a name="data"></a>
 ## Dataset
@@ -53,6 +55,10 @@ Sample2.R2.fastq.gz
 Sample3.R1.fastq.gz
 
 Sample3.R2.fastq.gz
+
+Download here:
+
+https://drive.google.com/drive/folders/1UQCkgNg2AAjP4ctD3K-ISc8EWVulngaM?usp=drive_link
 
 ### Reference genome (only chr 28 and chr 29)
 
@@ -1004,3 +1010,7 @@ Nextflow dag ... ![Nextflowdag](nextflowdag.png)
 ## Acknowledgements
 
 I thank the Davies coding club members for practicing on code similar to the one presented here. In particular, special thanks to Callum MacPhillamy, my post-doc, who coded the majority of the pipelines presented here.
+
+<a name="further"></a>
+## Further self learning
+If you like to learn bioinformatics in this type of "workshop-style", consider getting my [book](https://www.worldscientific.com/worldscibooks/10.1142/12908#t=aboutBook).
