@@ -191,6 +191,33 @@ I recommend [Snakemake tutorial](https://snakemake.readthedocs.io/en/stable/tuto
 
 Both Snakemake and Nextflow are using dataflow programming language. Think of this as mapping on inputs and outputs; jobs that have gathered all required inputs will immediately run. Print out the directed acyclic graph will help you visualize your jobs.
 
+Config
+```console
+$ cat config.yaml
+samples:
+  - Sample1
+  - Sample2
+  - Sample3
+
+reference: /data/home/misc/Snakemake_vs_nextflow/code_club/snakemake_version2/input_data/reference/ARS-UCD2.0_demo.fa
+
+$ cat environment.yaml
+channels:
+  - bioconda
+  - conda-forge
+dependencies:
+  - snakemake-minimal >=7.3
+  - jinja2
+  - matplotlib
+  - graphviz
+  - bcftools =1.15
+  - samtools =1.15
+  - bwa =0.7.17
+  - pysam =0.19
+  - pygments
+```
+
+How to run snakemake?
 ```console
 conda activate lloydcondaenv
 snakemake -n -s Snakefile --configfile config.yaml
@@ -198,9 +225,9 @@ snakemake -n -s Snakefile --configfile config.yaml --dag | dot -Tsvg > snakedag.
 snakemake --cores 16 -s Snakefile --configfile config.yaml
 ```
 
+
 The snake dag ... ![snake dag](snakedag.svg)
 
-<object data="snakemake_multiqc_report.html" width="1000" height="600" type="text/html"></object>
 
 <a name="nextflow"></a>
 ## Nextflow
