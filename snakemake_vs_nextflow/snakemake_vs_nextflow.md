@@ -40,7 +40,7 @@ Why you should consider learning a proper workflow manager?
 </summary>
 <p>
 
-# Raw fastq files
+### Raw fastq files
 
 Sample1.R1.fastq.gz
 
@@ -54,7 +54,7 @@ Sample3.R1.fastq.gz
 
 Sample3.R2.fastq.gz
 
-# Reference genome
+### Reference genome
 
 ARS-UCD2.0_demo.fa
 
