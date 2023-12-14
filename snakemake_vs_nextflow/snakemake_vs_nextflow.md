@@ -732,7 +732,7 @@ workflow {
 	fastqc_raw_report = fastqc_raw(samples)
 	(trimmed, trim_report) = trim_galore(samples)
 	fastqc_trim_report = fastqc_trimmed(trimmed)
-    seq_stats = seqkit_stats(samples)
+  seq_stats = seqkit_stats(samples)
 	mapped = bwa_mapping(trimmed)
 	(deduped, metrics) = markDuplicates(mapped)
 
@@ -745,10 +745,10 @@ workflow {
 	(postdedup_stat, postdedup_flag, postdedup_idx) = bam_stats_post_dedup(deduped)
 	postdedup_stats = postdedup_stat.mix( postdedup_flag, postdedup_idx ).flatten().collect()
 
-    split = split_bam(deduped)
-    //split.transpose().view()
-    //split.view()
-    vcf_stats = call_genotype(split.transpose()).stats
+  split = split_bam(deduped)
+  //split.transpose().view()
+  //split.view()
+  vcf_stats = call_genotype(split.transpose()).stats
 
 	//multiqc_files = fastqc_raw_report.mix( fastqc_trim_report, trim_report, prededup_stats, postdedup_stats, vcf_stats, seq_stats, metrics ).flatten().collect()
 	multiqc_files = fastqc_raw_report.mix( fastqc_trim_report ).flatten().collect()
