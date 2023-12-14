@@ -200,7 +200,7 @@ snakemake --cores 16 -s Snakefile --configfile config.yaml
 
 The snake dag ... ![snake dag](snakedag.svg)
 
-[Multiqc report](snakemake_multiqc_report.html)
+<object data="snakemake_multiqc_report.html" width="1000" height="600" type="text/html"></object>
 
 <a name="nextflow"></a>
 ## Nextflow
