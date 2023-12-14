@@ -176,7 +176,18 @@ done < ${sampleID}.chromosomes.txt
 
 ![Snakemake](snakemake.png)
 
-I recommend [Snakemake tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html)
+I recommend [Snakemake tutorial](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html) and this paper by [Koster and Rahmann2012](https://academic.oup.com/bioinformatics/article/28/19/2520/290322) on its history.
+
+Both Snakemake and Nextflow are using dataflow programming language. Think of this as mapping on inputs and outputs; jobs that have gathered all required inputs will immediately run. Print out the directed acyclic graph will help you visualize your jobs.
+
+```console
+conda activate lloydcondaenv
+snakemake -n -s Snakefile --configfile config.yaml
+snakemake -n -s Snakefile --configfile config.yaml --dag | dot -Tsvg > snakedag.svg
+snakemake --cores 16 -s Snakefile --configfile config.yaml
+```
+
+The [snake dag](snakedag.svg) ...
 
 <a name="nextflow"></a>
 ## Nextflow
