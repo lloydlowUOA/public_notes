@@ -191,7 +191,7 @@ I recommend [Snakemake tutorial](https://snakemake.readthedocs.io/en/stable/tuto
 
 Both Snakemake and Nextflow are using dataflow programming language. Think of this as mapping on inputs and outputs; jobs that have gathered all required inputs will immediately run. Print out the directed acyclic graph will help you visualize your jobs.
 
-Config
+Config and environment
 ```console
 $ cat config.yaml
 samples:
@@ -217,6 +217,23 @@ dependencies:
   - pygments
 ```
 
+Directory structure
+```console
+$ ls -lah
+total 70K
+drwxrwsr-x  6 lloyd lloyd   11 Dec 14 11:39 .
+drwxrwsr-x 10 lloyd lloyd   10 Dec 13 18:52 ..
+-rw-rw-r--  1 lloyd lloyd  164 Dec 13 22:46 config.yaml
+-rw-rw-r--  1 lloyd lloyd  203 Dec 13 18:52 environment.yaml
+drwxrwsr-x  4 lloyd lloyd    4 Dec 13 22:41 input_data
+drwxrwsr-x  7 lloyd lloyd    7 Dec 14 11:43 logs
+-rw-rw-r--  1 lloyd lloyd  218 Dec 13 23:08 mylog
+drwxrwsr-x  8 lloyd lloyd    8 Dec 14 11:43 results
+-rw-rw-r--  1 lloyd lloyd  17K Dec 14 11:31 snakedag.svg
+-rw-rw-r--  1 lloyd lloyd 4.1K Dec 13 23:17 Snakefile
+drwxrwsr-x 11 lloyd lloyd   11 Dec 14 11:39 .snakemake
+```
+
 How to run snakemake?
 ```console
 conda activate lloydcondaenv
@@ -224,7 +241,6 @@ snakemake -n -s Snakefile --configfile config.yaml
 snakemake -n -s Snakefile --configfile config.yaml --dag | dot -Tsvg > snakedag.svg
 snakemake --cores 16 -s Snakefile --configfile config.yaml
 ```
-
 
 The snake dag ... ![snake dag](snakedag.svg)
 
@@ -386,24 +402,6 @@ rule multiqc:
 		"""
 		multiqc results/fastqc/raw results/fastqc/trimmed -o results/multiqc
 		"""
-```
-
-After run directory structure
-
-```console
-$ ls -lah
-total 70K
-drwxrwsr-x  6 lloyd lloyd   11 Dec 14 11:39 .
-drwxrwsr-x 10 lloyd lloyd   10 Dec 13 18:52 ..
--rw-rw-r--  1 lloyd lloyd  164 Dec 13 22:46 config.yaml
--rw-rw-r--  1 lloyd lloyd  203 Dec 13 18:52 environment.yaml
-drwxrwsr-x  4 lloyd lloyd    4 Dec 13 22:41 input_data
-drwxrwsr-x  7 lloyd lloyd    7 Dec 14 11:43 logs
--rw-rw-r--  1 lloyd lloyd  218 Dec 13 23:08 mylog
-drwxrwsr-x  8 lloyd lloyd    8 Dec 14 11:43 results
--rw-rw-r--  1 lloyd lloyd  17K Dec 14 11:31 snakedag.svg
--rw-rw-r--  1 lloyd lloyd 4.1K Dec 13 23:17 Snakefile
-drwxrwsr-x 11 lloyd lloyd   11 Dec 14 11:39 .snakemake
 ```
 
 <a name="nextflow"></a>
