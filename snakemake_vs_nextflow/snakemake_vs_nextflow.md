@@ -77,7 +77,7 @@ ARS-UCD2.0_demo.fa.sa
 
 Download here:
 
-https://drive.google.com/drive/folders/1UQCkgNg2AAjP4ctD3K-ISc8EWVulngaM?usp=drive_link
+https://drive.google.com/drive/folders/1KbMlYVpfw99FHqFFB3rQiU56QWFsxLpa
 
 </p>
 </details>
