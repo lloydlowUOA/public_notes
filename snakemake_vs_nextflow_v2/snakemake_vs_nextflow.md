@@ -2,11 +2,11 @@
 ---
 Authors: [Lloyd Low](https://researchers.adelaide.edu.au/profile/wai.low)
 
-Role: Senior Bioinformatician
+Role: Visiting Scientist
 
-Affiliation: University of Adelaide
+Affiliation: University of Doha, For Science and Technology & University of Adelaide
 
-*14/12/2023*
+*3/10/2024*
 
 ## Table of Contents
 * [Workflow management system](#workflow)
