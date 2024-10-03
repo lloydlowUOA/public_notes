@@ -101,7 +101,7 @@ The steps are
 ```bash
 #!/bin/bash
 
-#conda activate insyb2023 #ensure all tools such as fastqc, seqkit etc are available
+#conda activate snakemake_vs_nextflow on my laptop to ensure all tools such as fastqc, seqkit etc are available
 
 #define variables
 taskcpus=8
@@ -116,8 +116,8 @@ bam=Sample1.sorted.bam
 dedupbam=Sample1.markDup.bam
 
 #ensure ref and raw fastq are here
-# ln -s ../raw_fastq/Sample1.R1.fastq.gz ../raw_fastq/Sample1.R2.fastq.gz .
-# ln -s ../reference/* .
+ln -s ../raw_fastq/Sample1.R1.fastq.gz ../raw_fastq/Sample1.R2.fastq.gz .
+ln -s ../reference/* .
 
 #fastqc_raw
 fastqc -t ${taskcpus} ${read1} ${read2}
@@ -148,7 +148,7 @@ bwa mem -M \
         | samtools sort --threads ${taskcpus} -o ${sampleID}.sorted.bam
 
 #picard_markDuplicates
-java -jar -Xmx${avail_mem}g /home/lloyd/Software/picard/build/libs/picard.jar MarkDuplicates \
+java -jar -Xmx${avail_mem}g /Users/a1223107/Documents/Software/picard.jar MarkDuplicates \
                 I=${bam} \
                 O=${sampleID}.markDup.bam \
                 M=${sampleID}.markDup.metrics.txt \
