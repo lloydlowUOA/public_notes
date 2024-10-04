@@ -244,6 +244,13 @@ drwxrwsr-x  8 lloyd lloyd    8 Dec 14 11:43 results
 drwxrwsr-x 11 lloyd lloyd   11 Dec 14 11:39 .snakemake
 ```
 
+## Notes
+
+```console
+#I need to run below to get snakemake set up
+eval "$(mamba shell hook --shell bash)"
+```
+
 Config and environment
 ```console
 $ cat config.yaml
