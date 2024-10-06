@@ -1091,7 +1091,8 @@ process call_genotype {
 How to run nextflow?
 ```console
 conda activate nextflow
-nextflow run main.nf --samplesheet samplesheet.csv --reference /data/home/misc/Snakemake_vs_nextflow/code_club/nextflow_version3/input_data/reference/ARS-UCD2.0_demo.fa -profile conda_local -with-dag
+#nextflow run main.nf --samplesheet samplesheet.csv --reference /data/home/misc/Snakemake_vs_nextflow/code_club/nextflow_version3/input_data/reference/ARS-UCD2.0_demo.fa -profile conda_local -with-dag
+nextflow run main.nf --samplesheet samplesheet.csv --reference /home/lloyd/ssd2/Snakemake_vs_nextflow/Snakemake_vs_nextflow/code_club/nextflow_version3/input_data/reference/ARS-UCD2.0_demo.fa -profile conda_local -with-dag
 ```
 
 Nextflow dag ... ![Nextflowdag](nextflowdag.png)
