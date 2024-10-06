@@ -284,7 +284,11 @@ How to run snakemake?
 ```console
 conda activate lloydcondaenv
 snakemake -n -s Snakefile --configfile config.yaml
-snakemake -n -s Snakefile --configfile config.yaml --dag | dot -Tsvg > snakedag.svg
+#snakemake -n -s Snakefile --configfile config.yaml --dag | dot -Tsvg > snakedag.svg
+snakemake -n -s Snakefile --configfile config.yaml --dag > dag.dot
+vi dag.dot # delete the first line
+dot -Tsvg dag.dot > snakedag.svg
+
 snakemake --cores 16 -s Snakefile --configfile config.yaml
 ```
 
