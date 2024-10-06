@@ -247,8 +247,11 @@ drwxrwsr-x 11 lloyd lloyd   11 Dec 14 11:39 .snakemake
 ## Notes
 
 ```console
-#I need to run below to get snakemake set up
+#I need to run below to get snakemake set up the first time
 eval "$(mamba shell hook --shell bash)"
+
+#The next time I login, I activated it as below
+conda activate /home/lloyd/anaconda3/envs/snakemake/envs/snakemake_env
 ```
 
 Config and environment
