@@ -83,7 +83,7 @@ https://drive.google.com/drive/folders/1KbMlYVpfw99FHqFFB3rQiU56QWFsxLpa
 </details>
 
 ## Software installation
-FASTQC [fastqc] (https://bioinformaticschool.com/install-fastqc-linux-guide/)
+[fastqc](https://bioinformaticschool.com/install-fastqc-linux-guide/)
 
 <a name="shell"></a>
 ## Shell scripting
