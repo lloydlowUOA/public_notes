@@ -89,13 +89,17 @@ https://drive.google.com/drive/folders/1KbMlYVpfw99FHqFFB3rQiU56QWFsxLpa
 
 * [trim_galore](https://github.com/FelixKrueger/TrimGalore)
 
-bwa
+* [bwa](https://github.com/lh3/bwa)
 
-picard
+* [picard](https://broadinstitute.github.io/picard/)
 
-samtools
+```bash
+wget -O picard.jar https://github.com/broadinstitute/picard/releases/download/2.26.2/picard.jar
+```
 
-bcftools
+* [samtools](https://www.htslib.org/download/)
+
+* [bcftools](https://samtools.github.io/bcftools/howtos/install.html)
 
 <a name="shell"></a>
 ## Shell scripting
