@@ -83,6 +83,8 @@ https://drive.google.com/drive/folders/1KbMlYVpfw99FHqFFB3rQiU56QWFsxLpa
 </details>
 
 ## Software installation
+* [conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html)
+
 * [fastqc](https://bioinformaticschool.com/install-fastqc-linux-guide/)
 
 * [seqkit](https://bioinf.shenwei.me/seqkit/download/)
