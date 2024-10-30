@@ -84,6 +84,12 @@ https://drive.google.com/drive/folders/1KbMlYVpfw99FHqFFB3rQiU56QWFsxLpa
 
 ## Software installation
 [fastqc](https://bioinformaticschool.com/install-fastqc-linux-guide/)
+[seqkit](https://bioinf.shenwei.me/seqkit/download/)
+trim_galore
+bwa
+picard
+samtools
+bcftools
 
 <a name="shell"></a>
 ## Shell scripting
