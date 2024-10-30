@@ -91,7 +91,7 @@ https://drive.google.com/drive/folders/1KbMlYVpfw99FHqFFB3rQiU56QWFsxLpa
 
 * [bwa](https://github.com/lh3/bwa)
 
-* [picard](https://broadinstitute.github.io/picard/)
+* [picard](https://broadinstitute.github.io/picard/) Use below command for picard installation, which may be quicker if the link here does not work.
 
 ```bash
 wget -O picard.jar https://github.com/broadinstitute/picard/releases/download/2.26.2/picard.jar
