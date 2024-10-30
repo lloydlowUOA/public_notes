@@ -82,6 +82,9 @@ https://drive.google.com/drive/folders/1KbMlYVpfw99FHqFFB3rQiU56QWFsxLpa
 </p>
 </details>
 
+## Software installation
+FASTQC [fastqc](https://snakemake.readthedocs.io/en/stable/tutorial/tutorial.html)https://bioinformaticschool.com/install-fastqc-linux-guide/)
+
 <a name="shell"></a>
 ## Shell scripting
 
@@ -101,7 +104,7 @@ The steps are
 ```bash
 #!/bin/bash
 
-#conda activate snakemake_vs_nextflow on my laptop to ensure all tools such as fastqc, seqkit etc are available
+#conda activate snakemake_vs_nextflow on my laptop to ensure all tools such as fastqc, seqkit, trim_galore, bwa, picard, samtools, bcftools etc are available
 
 #define variables
 taskcpus=8
