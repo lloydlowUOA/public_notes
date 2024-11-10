@@ -326,7 +326,7 @@ dependencies:
 
 How to run snakemake?
 ```console
-conda activate lloydcondaenv
+conda activate /home/lloyd/anaconda3/envs/snakemake/envs/snakemake_env
 snakemake -n -s Snakefile --configfile config.yaml
 #snakemake -n -s Snakefile --configfile config.yaml --dag | dot -Tsvg > snakedag.svg
 snakemake -n -s Snakefile --configfile config.yaml --dag > dag.dot
