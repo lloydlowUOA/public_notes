@@ -296,7 +296,7 @@ samples:
   - Sample2
   - Sample3
 
-reference: /data/home/misc/Snakemake_vs_nextflow/code_club/snakemake_version2/input_data/reference/ARS-UCD2.0_demo.fa
+reference: /home/lloyd/ssd2/Snakemake_vs_nextflow/Snakemake_vs_nextflow/code_club/snakemake_version2/input_data/reference/ARS-UCD2.0_demo.fa
 
 $ cat environment.yaml
 channels:
