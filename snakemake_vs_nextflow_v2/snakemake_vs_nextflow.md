@@ -298,6 +298,16 @@ samples:
 
 reference: /home/lloyd/ssd2/Snakemake_vs_nextflow/Snakemake_vs_nextflow/code_club/snakemake_version2/input_data/reference/ARS-UCD2.0_demo.fa
 
+#When you run Snakemake with the --use-conda flag, it will automatically create a Conda environment based on the specifications in the environment.yaml file.
+#Or, when you specify the environment within a rule e.g.
+#rule example_rule:
+#    input:
+#        "data/input.txt"
+#    output:
+#        "results/output.txt"
+#    conda:
+#        "envs/environment.yaml"
+
 $ cat environment.yaml
 channels:
   - bioconda
