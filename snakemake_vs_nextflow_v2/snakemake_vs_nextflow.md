@@ -181,6 +181,17 @@ java -jar -Xmx${avail_mem}g /Users/a1223107/Documents/Software/picard.jar MarkDu
                 CREATE_INDEX=false
 samtools index ${sampleID}.markDup.bam
 
+#picard_markDuplicates ontPC
+java -jar -Xmx${avail_mem}g /home/lloyd/Software/picard/picard.jar MarkDuplicates \
+                I=${bam} \
+                O=${sampleID}.markDup.bam \
+                M=${sampleID}.markDup.metrics.txt \
+                VALIDATION_STRINGENCY=LENIENT \
+                REMOVE_DUPLICATES=false \
+                OPTICAL_DUPLICATE_PIXEL_DISTANCE=100 \
+                CREATE_INDEX=false
+samtools index ${sampleID}.markDup.bam
+
 #bam_stats_pre_dedup
 samtools index ${bam}
 samtools stats ${bam} > ${sampleID}.prededup.stats
