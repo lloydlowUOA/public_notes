@@ -340,7 +340,7 @@ The snake dag ... ![snake dag](snakedag.svg)
 
 The snakefile is below.
 
-The `rule all` defines the final targets of your workflow.
+The `rule all` defines the final targets of the workflow.
 
 ```python3
 rule all:
