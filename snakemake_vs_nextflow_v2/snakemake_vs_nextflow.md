@@ -338,7 +338,10 @@ snakemake --cores 16 -s Snakefile --configfile config.yaml
 
 The snake dag ... ![snake dag](snakedag.svg)
 
-The snakefile
+The snakefile is below.
+
+The `rule all` defines the final targets of your workflow.
+
 ```python3
 rule all:
 	input:
