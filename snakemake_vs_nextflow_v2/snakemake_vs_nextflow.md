@@ -1151,4 +1151,4 @@ I thank the Davies coding club members for practicing on code similar to the one
 
 <a name="further"></a>
 ## Further self learning
-If you like to learn bioinformatics in this type of "workshop-style", consider getting my [book titled "Practical Bioinformatics for Beginners: From Raw Sequence Analysis to Machine Learning Applications"](https://www.worldscientific.com/worldscibooks/10.1142/12908#t=aboutBook).
+If you like to learn bioinformatics in this type of "workshop-style", consider getting my [book](https://www.worldscientific.com/worldscibooks/10.1142/12908#t=aboutBook) titled "Practical Bioinformatics for Beginners: From Raw Sequence Analysis to Machine Learning Applications".
