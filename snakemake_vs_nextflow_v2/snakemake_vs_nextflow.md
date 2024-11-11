@@ -671,7 +671,7 @@ includeConfig 'conf/base.config'
 profiles {
 
   conda_local {
-    process.conda = "/home/lloyd/mambaforge/envs/insyb2023"
+    process.conda = "/home/lloyd/anaconda3/envs/snakemake/envs/snakemake_env"
     conda.enabled = true
     process.executor = 'local'
   }
