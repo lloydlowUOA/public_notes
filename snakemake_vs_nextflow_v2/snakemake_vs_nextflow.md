@@ -122,6 +122,8 @@ The steps are
 ```bash
 #!/bin/bash
 
+#path is : /home/lloyd/ssd2/Snakemake_vs_nextflow/Snakemake_vs_nextflow/code_club
+
 #conda activate snakemake_vs_nextflow on my laptop to ensure all tools such as fastqc, seqkit, trim_galore, bwa, picard, samtools, bcftools etc are available
 # if using the ontPC, do
 # conda activate /home/lloyd/anaconda3/envs/snakemake/envs/snakemake_env
